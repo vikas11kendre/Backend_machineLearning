@@ -16,8 +16,8 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 CORS(app)
-modify_api_data = pd.read_csv(r"D:\personal projects\AIML\modify_commands_exported_data.csv")
-query_api_data = pd.read_csv(r"D:\personal projects\AIML\query_commands_exported_data.csv")
+modify_api_data = pd.read_csv(r"./modify_commands_exported_data.csv")
+query_api_data = pd.read_csv(r"./query_commands_exported_data.csv")
 api_data=pd.concat([modify_api_data,query_api_data])
 def preprocess_text(text):
     # Tokenization
@@ -93,5 +93,5 @@ def test_server():
 #     app.run(debug=True)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=3000)
+    app.run(debug=True)
     print("Server started")
